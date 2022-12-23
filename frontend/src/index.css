@@ -10,10 +10,32 @@ body {
 header{
     background-color: #404040;
     padding: 1rem;
+    padding-top: 1.5rem;
 }
 
-header a {
-    color: #ffffff;
-    font-weight: bold;
-    text-decoration: none;
+.brand {
+  max-width: 7rem;
+}
+
+
+
+.products{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* margin: auto; */
+}
+
+.product {
+  border: 1px #404040 solid;
+  margin: 1rem;
+}
+
+.product img{
+  width: 100%;
+  max-width: 300px;
+}
+
+.product_info {
+  padding: 1rem;
 }
