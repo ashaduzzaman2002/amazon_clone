@@ -1,3 +1,3 @@
-#MERN AMAZON CLONE
+####MERN AMAZON CLONE
 
-### This a full stack MERN app.
+# This a full stack MERN app.
