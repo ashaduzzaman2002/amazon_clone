@@ -1,37 +1,17 @@
-import { Link } from 'react-router-dom';
-import './App.css';
-import data from './data';
+import { Route, Routes } from 'react-router-dom';
+import Header from './components/Header';
+import Home from './components/Home/Home';
+import ProductDetails from './components/Home/ProductDetails';
+
 
 function App() {
   return (
     <div>
-      <header>
-        <Link to="/">
-          <img className="brand" src="/images/logo_white.png" alt="amazon" />
-        </Link>
-      </header>
-      <main>
-        <h1>Featured Products</h1>
-
-        <div className="products">
-          {data.products.map((product, i) => (
-            <div className="product" key={i}>
-              <Link to={`/product/${product.slug}`}>
-                <img src={product.image} alt={product.name} />
-              </Link>
-              <div className="product_info">
-                <Link style={{textDecoration: 'none', color: 'black'}} to={`/product/${product.slug}`}>
-                  <p>{product.name}</p>
-                </Link>
-                <p>
-                  <strong>₹{product.price}</strong>
-                </p>
-                <button>Add To Cart</button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </main>
+      <Header/>
+      <Routes>
+        <Route exact path='/' element={<Home />} />
+        <Route exact path='/product/:slug' element={<ProductDetails />} />
+      </Routes>
     </div>
   );
 }
