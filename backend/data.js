@@ -1,6 +1,7 @@
 exports.data = {
     products: [
         {
+            _id: '1',
             name: 'Nike Slim shirt',
             slug: 'nike_slim_shirt',
             catagory: 'Shirt',
@@ -14,6 +15,7 @@ exports.data = {
         },
 
         {
+            _id: '2',
             name: 'Zara Jeans',
             slug: 'zara_jeans',
             catagory: 'Jeans',
@@ -27,6 +29,7 @@ exports.data = {
         },
 
         {
+            _id: '3',
             name: 'Gucci Top',
             slug: 'gucci_top',
             catagory: 'Top',
@@ -40,6 +43,7 @@ exports.data = {
         },
 
         {
+            _id: '4',
             name: 'Nike Shoes',
             slug: 'nike_shoes',
             catagory: 'Shirt',

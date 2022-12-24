@@ -26,14 +26,26 @@ const ProductDetails = () => {
   };
   useEffect(() => {
     getProduct();
-    setIsLoading(false)
+    setIsLoading(false);
   }, [slug]);
 
-  const {state, dispatch: ctxDispatch} = useContext(Store)
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { cart } = state;
+  const addToCart = async () => {
+    const existItem = cart.cartItems.find(x => x._id === product._id)
+    const quantity = existItem? existItem.quantity +1: 1
+    const {data} = await axios('http://localhost:5000/api/products/'+product._id)
 
-const addToCart = () => {
-  ctxDispatch({type: 'CART_ADD_ITEM', payload: {...product, quantity: 1}})
-}
+    if(data.countInStock < quantity){
+      window.alert('Sorry. Product is out of stock')
+    }
+
+
+    ctxDispatch({
+      type: 'CART_ADD_ITEM',
+      payload: { ...product, quantity },
+    });
+  };
 
   return (
     <div>

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Container, Navbar, Nav, Badge } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { FaShoppingCart } from 'react-icons/fa';
@@ -8,10 +8,6 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   const { state } = useContext(Store);
   const { cart } = state;
-
-  useEffect(() => {
-    console.log(cart.cartItems.length);
-  }, []);
 
   return (
     <header>
@@ -42,7 +38,7 @@ const Header = () => {
                   pill
                   bg="danger"
                 >
-                  {cart.cartItems.length}
+                  {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
                 </Badge>
               )}
             </Link>

@@ -32,6 +32,19 @@ app.get('/api/products/slug/:slug', (req, res) => {
 })
 
 
+app.get('/api/products/:id', (req, res) => {
+  const product = data.products.find(x => x._id === req.params.id)
+
+
+  if(product) {
+    res.status(200).json(product)
+  }else{
+    res.status(404).json({msg: 'Product not found'})
+  }
+  
+})
+
+
 
 // connected to mongodb
 mongoose.set('strictQuery', true);
