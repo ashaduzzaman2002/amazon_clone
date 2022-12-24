@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Row, Col, ListGroup, Card, Badge, Button } from 'react-bootstrap';
 import Rating from '../Rating';
@@ -7,6 +7,7 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { Helmet } from 'react-helmet-async';
 import Loading from '../Loading';
 import MessageBox from '../MessageBox';
+import { Store } from '../../store/Store';
 
 const url = 'http://localhost:5000/api/products/slug/';
 const ProductDetails = () => {
@@ -27,6 +28,12 @@ const ProductDetails = () => {
     getProduct();
     setIsLoading(false)
   }, [slug]);
+
+  const {state, dispatch: ctxDispatch} = useContext(Store)
+
+const addToCart = () => {
+  ctxDispatch({type: 'CART_ADD_ITEM', payload: {...product, quantity: 1}})
+}
 
   return (
     <div>
@@ -90,7 +97,7 @@ const ProductDetails = () => {
                   {product.countInStock > 0 && (
                     <ListGroup.Item>
                       <div className="d-grid">
-                        <Button className="bg-custom">
+                        <Button onClick={addToCart} className="bg-custom">
                           {
                             <FaShoppingCart
                               style={{ paddingRight: '10px', fontSize: 30 }}
