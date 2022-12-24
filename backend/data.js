@@ -8,7 +8,7 @@ exports.data = {
             price: 500,
             countInStock: 10,
             brand: 'Nike',
-            rating: 4.5,
+            rating: 4,
             reviews: 10,
             description: 'This a high quality product'
         },
@@ -19,9 +19,9 @@ exports.data = {
             catagory: 'Jeans',
             image: '/images/p2.jpeg',
             price: 500,
-            countInStock: 10,
+            countInStock: 0,
             brand: 'Zara',
-            rating: 4,
+            rating: 3,
             reviews: 10,
             description: 'This a high quality product'
         },
@@ -34,7 +34,7 @@ exports.data = {
             price: 500,
             countInStock: 10,
             brand: 'Gucci',
-            rating: 4.5,
+            rating: 3.5,
             reviews: 10,
             description: 'This a high quality product'
         },
